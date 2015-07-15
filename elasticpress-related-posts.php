@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: ElasticPress Related Posts
- * Description: Retreive related posts from elastisearch.
+ * Description: Retrieve related posts from Elasticsearch.
  * Version:     0.0.1
  * Author:      10up
  * Author URI:  http://10up.com
