@@ -94,7 +94,19 @@ class EP_Related_Posts {
 			);
 		}
 		$html.='</ul>';
-		return $html;
+
+		/**
+		 * Filter the display HTML for related posts.
+		 * 
+		 * If developers want to customize the returned HTML for related posts or
+		 * write their own HTML, they have the power to do so.
+		 * 
+		 * @since 0.0.1
+		 * 
+		 * @param string $html Default Generated HTML 
+		 * @param array $posts Array of WP_Post objects.
+		 */
+		return apply_filters( 'ep_related_html', $html, $posts );
 	}
 
 	/**
