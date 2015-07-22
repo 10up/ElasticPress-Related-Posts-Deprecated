@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * EP_Related_Posts
+ * 
+ * This class will perform a WP_Query to fetch related posts and then
+ * display the returned posts below the post's content.
+ * 
+ * @since 0.0.1
+ * 
+ */
 if ( !defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
