@@ -64,14 +64,14 @@ class EP_Related_Posts {
 		if ( is_search() || is_home() || is_archive() || is_category() ) {
 			return $content;
 		}
-		$post_id	 = get_the_ID();
-		$cache_key	 = md5( 'related_posts_' . $post_id );
-		$html		 = wp_cache_get( $cache_key );
-		if ( false === $html ) {
-			$related_posts	 = $this->find_related( $post_id );
-			$html			 = $this->get_html( $related_posts );
-			wp_cache_set( $cache_key, $html, 300 );
+		$post_id		 = get_the_ID();
+		$cache_key		 = md5( 'related_posts_' . $post_id );
+		$related_posts	 = wp_cache_get( $cache_key );
+		if ( false === $related_posts ) {
+			$related_posts = $this->find_related( $post_id );
+			wp_cache_set( $cache_key, $related_posts, 300 );
 		}
+		$html = $this->get_html( $related_posts );
 		return $content . "\n" . $html;
 	}
 
