@@ -14,6 +14,8 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 class EP_Related_Posts {
+	
+	const CACHE_GROUP = 'elasticpress';
 
 	/**
 	 * Placeholder method
@@ -75,10 +77,10 @@ class EP_Related_Posts {
 		}
 		$post_id		 = get_the_ID();
 		$cache_key		 = md5( 'related_posts_' . $post_id );
-		$related_posts	 = wp_cache_get( $cache_key );
+		$related_posts	 = wp_cache_get( $cache_key, self::CACHE_GROUP );
 		if ( false === $related_posts ) {
 			$related_posts = $this->find_related( $post_id );
-			wp_cache_set( $cache_key, $related_posts, 300 );
+			wp_cache_set( $cache_key, $related_posts, self::CACHE_GROUP, 300 );
 		}
 		$html = $this->get_html( $related_posts );
 		return $content . "\n" . $html;
